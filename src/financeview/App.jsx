@@ -47,6 +47,10 @@ export default function App() {
         onSearchChange={setSearchText}
         type={type}
         onTypeChange={setType}
+        onClear={() => {
+          setSearchText("");
+          setType(ALL);
+        }}
         resultCount={filtered.length}
       />
 
