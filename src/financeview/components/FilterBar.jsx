@@ -3,6 +3,7 @@ export default function FilterBar({
   onSearchChange,
   type,
   onTypeChange,
+  onClear,
   resultCount,
 }) {
   const types = ["ALL", "BILLING", "RTGS"];
@@ -47,6 +48,12 @@ export default function FilterBar({
           ))}
         </div>
       </div>
+
+      {(searchText || type !== "ALL") && (
+        <button className="filter-bar__clear" type="button" onClick={onClear}>
+          Clear filters
+        </button>
+      )}
 
       <p className="filter-bar__count" aria-live="polite">
         Showing {resultCount} {resultCount === 1 ? "record" : "records"}
